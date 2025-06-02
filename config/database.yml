@@ -1,0 +1,24 @@
+# config/database.yml
+development:
+  adapter: mysql2
+  host: localhost
+  username: root
+  password: rootuser
+  database: employee_db
+  encoding: utf8mb4
+
+test:
+  adapter: mysql2
+  host: localhost
+  username: your_mysql_username
+  password: your_mysql_password
+  database: employee_manager_test
+  encoding: utf8mb4
+
+production:
+  adapter: mysql2
+  host: your_production_mysql_host
+  username: your_production_mysql_username
+  password: your_production_mysql_password
+  database: employee_manager_prod
+  encoding: utf8mb4
