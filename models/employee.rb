@@ -4,10 +4,7 @@ require 'date'
 class Employee
   attr_accessor :emp_id, :first_name, :last_name, :email, :phone, :hire_date, :dept_id, :role_id
   attr_accessor :dept_name, :role_name # For joined data, populated by find/all methods
-  
-  def initialize(args={})
-   
-  end
+
 
   private def client
     DatabaseConnector.client
