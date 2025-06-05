@@ -20,9 +20,9 @@ def json_response(status_code, data)
   status status_code
   data.to_json
 end
-def error_response(status_code, message)
-  LOGGER.warn "Error #{status_code}: #{message}"
-  json_response(status_code, { error: message})
+def error_response(status_code, message, details = {})
+  LOGGER.warn "Error #{status_code}: #{message} - Details: #{details}"
+  json_response(status_code, { error: message, details: details })
 end
 class RecordNotFound < StandardError; end
 class ValidationError < StandardError; end
@@ -34,7 +34,7 @@ end
 
 # Catches `RecordNotFound` errors, returning a 404.
 error RecordNotFound do
-    error_response(404, env['sinatra.error'].message)
+  error_response(404, env['sinatra.error'].message)
 end
 
 # Catches `ValidationError` errors, returning a 400 Bad Request.
